@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="canvas" width="200" height="200"></canvas>
+<script>
+// This creates simple colored placeholder images
+// Run this in browser console to generate placeholders
+const items = {
+  'hats/baseball': '#dc2626',
+  'hats/beanie': '#2563eb',
+  'hats/tophat': '#000000',
+  'hats/crown': '#fbbf24',
+  'hats/party': '#ec4899',
+  'hats/chef': '#ffffff',
+  'hats/pirate': '#1e293b',
+  'shirts/tshirt': '#3b82f6',
+  'shirts/hoodie': '#6b7280',
+  'shirts/suit': '#1e293b',
+  'shirts/sweater': '#dc2626',
+  'shirts/tank': '#f3f4f6',
+  'shirts/jersey': '#7c3aed',
+  'shirts/cape': '#ef4444',
+  'pants/jeans': '#1e40af',
+  'pants/shorts': '#d97706',
+  'pants/dress': '#1e293b',
+  'pants/skirt': '#ec4899',
+  'pants/sweatpants': '#6b7280',
+  'accessories/glasses': '#1e293b',
+  'accessories/scarf': '#dc2626',
+  'accessories/bowtie': '#000000',
+  'accessories/backpack': '#7c3aed'
+};
+
+console.log('Copy these data URLs and save as PNG files:');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+for (const [path, color] of Object.entries(items)) {
+  ctx.fillStyle = color;
+  ctx.fillRect(0, 0, 200, 200);
+  ctx.strokeStyle = '#000';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(0, 0, 200, 200);
+  
+  const dataUrl = canvas.toDataURL('image/png');
+  console.log(`${path}.png`, dataUrl);
+}
+</script>
+</body>
+</html>
