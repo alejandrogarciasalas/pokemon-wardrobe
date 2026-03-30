@@ -63,31 +63,30 @@ function App() {
   return (
     <div className="app">
       <header>
-        <h1>🎨 Pokémon Wardrobe</h1>
+        <h1>🎮 POKÉMON WARDROBE</h1>
         <p>Dress up your Pokémon!</p>
       </header>
 
       <main>
-        {/* Left side: Pokemon display */}
-        <div className="pokemon-display">
-          {/* Pokemon selector */}
-          <div className="pokemon-selector">
-            <h3>Choose Your Pokémon</h3>
-            <div className="pokemon-grid">
-              {availablePokemon.map((pokemon) => (
-                <button
-                  key={pokemon.id}
-                  className={`pokemon-option ${selectedPokemon.id === pokemon.id ? 'selected' : ''}`}
-                  onClick={() => setSelectedPokemon(pokemon)}
-                >
-                  <img src={pokemon.imageUrl} alt={pokemon.name} />
-                  <span>{pokemon.name}</span>
-                </button>
-              ))}
-            </div>
+        {/* Left: Pokemon selector */}
+        <div className="pokemon-selector">
+          <h3>Select Pokémon</h3>
+          <div className="pokemon-grid">
+            {availablePokemon.map((pokemon) => (
+              <button
+                key={pokemon.id}
+                className={`pokemon-option ${selectedPokemon.id === pokemon.id ? 'selected' : ''}`}
+                onClick={() => setSelectedPokemon(pokemon)}
+              >
+                <img src={pokemon.imageUrl} alt={pokemon.name} />
+                <span>{pokemon.name}</span>
+              </button>
+            ))}
           </div>
+        </div>
 
-          {/* Pokemon with outfit */}
+        {/* Center: Pokemon with outfit */}
+        <div className="pokemon-display">
           <div className="pokemon-canvas">
             <h2>{selectedPokemon.name}</h2>
             <div className="pokemon-wrapper">
@@ -132,7 +131,7 @@ function App() {
           </div>
         </div>
 
-        {/* Right side: Wardrobe */}
+        {/* Right: Wardrobe */}
         <div className="wardrobe">
           <h2>👔 Wardrobe</h2>
           
